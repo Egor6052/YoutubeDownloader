@@ -109,6 +109,7 @@ int main() {
         cout << "Number of video: " << Video.numberVideo << endl;
     }
 
+
     // Виведення всіх введених відео
     cout << "\nAll entered videos:" << endl;
     for (const auto& Video : videos) {
