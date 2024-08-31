@@ -86,68 +86,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void downloadVideo(String link, String format) {
-        if (link == null || link.isEmpty()) {
-            Toast.makeText(MainActivity.this, "Invalid link", Toast.LENGTH_SHORT).show();
-            Log.e("MainActivity", "downloadVideo: Link is null or empty");
-            return;
-        }
 
-        if (format == null || format.isEmpty()) {
-            Toast.makeText(MainActivity.this, "Invalid format", Toast.LENGTH_SHORT).show();
-            Log.e("MainActivity", "downloadVideo: Format is null or empty");
-            return;
-        }
+        String command = "yt-dlp -f " + format + " -o '/sdcard/Download/video_" + System.currentTimeMillis() + format + "' " + link;
 
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(link)
-                .build();
+        try {
+            Process process = Runtime.getRuntime().exec(command);
 
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                runOnUiThread(() -> {
-                    Toast.makeText(MainActivity.this, "Download failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    Log.e("MainActivity", "Download failed: " + e.getMessage());
-                });
+            int exitCode = process.waitFor();
+            if (exitCode == 0) {
+                runOnUiThread(() -> Toast.makeText(MainActivity.this, "Download successful", Toast.LENGTH_SHORT).show());
+            } else {
+                runOnUiThread(() -> Toast.makeText(MainActivity.this, "Download failed", Toast.LENGTH_SHORT).show());
             }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response == null || !response.isSuccessful()) {
-                    runOnUiThread(() -> {
-                        Toast.makeText(MainActivity.this, "Download failed: " + (response != null ? response.message() : "Unknown error"), Toast.LENGTH_SHORT).show();
-                        Log.e("MainActivity", "Download failed: response is null or unsuccessful");
-                    });
-                    return;
-                }
-
-                // Save video to the file system
-                File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-                File file = new File(path, "video_" + System.currentTimeMillis() + format);
-
-                try (InputStream inputStream = response.body().byteStream();
-                     FileOutputStream outputStream = new FileOutputStream(file)) {
-
-                    byte[] buffer = new byte[4096];
-                    int bytesRead;
-                    while ((bytesRead = inputStream.read(buffer)) != -1) {
-                        outputStream.write(buffer, 0, bytesRead);
-                    }
-
-                    runOnUiThread(() -> {
-                        Toast.makeText(MainActivity.this, "Downloaded to: " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
-                        Log.d("MainActivity", "Video downloaded successfully");
-                    });
-                } catch (IOException e) {
-                    runOnUiThread(() -> {
-                        Toast.makeText(MainActivity.this, "Error saving video: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("MainActivity", "Error saving video: " + e.getMessage());
-                    });
-                }
-            }
-        });
+        } catch (IOException | InterruptedException e) {
+            runOnUiThread(() -> Toast.makeText(MainActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+        }
     }
+
 
 
 

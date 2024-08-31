@@ -4,12 +4,13 @@ plugins {
 
 android {
     namespace 'com.example.activitystatistics'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
+        minSdkVersion 25
         applicationId "com.example.activitystatistics"
         minSdk 19
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
