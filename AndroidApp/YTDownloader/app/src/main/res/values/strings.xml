@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ActivityStatistics</string>
+    <string name="ButtonText1">Play</string>
+    <string name="EditText1">Click here</string>
+    <string name="VideoLink">Enter YouTube Video Link</string>
+    <string name="Download">Download</string>
+
+</resources>
