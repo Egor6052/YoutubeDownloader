@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+        <widget class="QLabel" name="label">
+            <property name="text">
+                <string>Enter video link:</string>
+            </property>
+        </widget>
+    </item>
+    <item>
+        <widget class="QLineEdit" name="linkInput"/>
+    </item>
+    <item>
+        <widget class="QLabel" name="label_2">
+            <property name="text">
+                <string>Select video format:</string>
+            </property>
+        </widget>
+    </item>
+    <item>
+        <widget class="QComboBox" name="formatComboBox">
+            <item>
+                <property name="text">
+                    <string>.mp4</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>.webm</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>.mkv</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>.mp3</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>.aac</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>.m4a</string>
+                </property>
+            </item>
+        </widget>
+    </item>
+    <item>
+        <widget class="QPushButton" name="addButton">
+            <property name="text">
+                <string>Add Video</string>
+            </property>
+        </widget>
+    </item>
+    <item>
+        <widget class="QListWidget" name="videoList"/>
+    </item>
+    <item>
+        <widget class="QPushButton" name="downloadButton">
+            <property name="text">
+                <string>Download All Videos</string>
+            </property>
+        </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <connections>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_addButton_clicked()</slot>
+  </connection>
+  <connection>
+   <sender>downloadButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_downloadButton_clicked()</slot>
+  </connection>
+ </connections>
+</ui>
