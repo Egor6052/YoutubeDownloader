@@ -1,0 +1,47 @@
+Компіляція:
+g++ hello.cpp -o hello
+
+Запуск:
+./hello
+
+ImGui:
+g++ Test.cpp imgui/imgui.cpp imgui/imgui_draw.cpp imgui/imgui_widgets.cpp imgui/imgui_tables.cpp imgui-sfml/imgui-SFML.cpp -o Test -I./imgui -I./imgui-sfml -I/usr/include/SFML -L/usr/lib -lsfml-graphics -lsfml-window -lsfml-system -lGL
+
+
+
+
+Requirements:
+
+    Practical programming experience in C ++ from 3 years in real projects;
+    Knowledge of software architecture and object-oriented programming;
+    3D mathematics knowledge;
+    Experience with multithreading;
+    Teamwork, responsibility, deadline commitment;
+    Good English skills (reading and writing).
+
+Will be a plus:
+
+    Programming experience on Mobile Devices and/or Consoles;
+    Experience in video game programming or other 3D applications (personal projects/applications accepted);
+    Knowledge of client-server communication and networking technologies;
+    Experience with scripting languages (Python, Lua, Typescript, etc.);
+    Experience in Unity / Unreal is welcomed;
+
+Responsibilities:
+
+    Plan and program the game according to the design specifications and the programming rules already in place;
+    Contribute to the game’s design specifications and technical specifications;
+    Integrate all elements of the game, including engine, gameplay, user interface, graphics/animations and sound;
+    Design, build, and maintain efficient, reusable, and reliable code;
+    Ensure the best performance, quality, and responsiveness of applications and games;
+    Work alongside colleagues from all the other departments of the game team (2d and 3d graphic designers, game and level designers, a backend team).
+
+Benefits:
+
+    Join a leading global mobile and video games publisher and developer utilizing the state-of-art mobile technologies and devices;
+    Become a part of the talented international team in a friendly, creative and dynamic environment;
+    Become a true pro in the fast-growing, exciting and innovative video games industry;
+    Be proud to deliver the prestigious products winning the top rankings worldwide;
+    Build up your career with dynamic promotions and worldwide opportunities.
+
+In order to consider your application, we require you to send the full version of your CV in English. Qualified candidates will be asked to complete a test assessment.
