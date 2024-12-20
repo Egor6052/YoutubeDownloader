@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=YoutubeDownloader
+Exec=/home/admin1/YouTubeDownloader/YoutubeDownloader
+Icon=/home/admin1/YouTubeDownloader/icon.png
+Type=Application
